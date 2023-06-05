@@ -18,15 +18,16 @@ This is a web crawler to download files (WEBPXTICK_DT-\*.zip, TickData_structure
 
     usage: crawl.py [-h] [-d DATE] [-l] [--latest] [--cron CRON] [-rcv]
 
-    SGX File Downloader, by default, it will cron job to daily download/recover files at 8 AM
+    SGX File Downloader. By default, it will schedule a daily cron job to download or recover files at 8 AM.
 
     options:
     -h, --help            show this help message and exit
-    -d DATE, --date DATE  Date to download, format: YYYYMMDD, e.g. 20221231
-    -l, --list            List 5 days past
-    --latest              Download latest files
-    --cron CRON           Cron schedule for the job, format: "HH:MM", e.g. "08:00"
-    -rcv, --recover       Recover all failed dates
+    -d DATE, --date DATE  Specify the date to download files in the format: YYYYMMDD, e.g., 20221231.
+    -l, --list            List the five previous days.
+    --latest              Download the latest files.
+    --cron CRON           Schedule a cron job for downloading the latest files and recovering failed dates. 
+                          Specify the cron schedule in the format: "HH:MM", e.g., "08:00".
+    -rcv, --recover       Recover all failed dates.
 
 
 ## Examples

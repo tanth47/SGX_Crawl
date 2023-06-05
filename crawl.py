@@ -193,12 +193,12 @@ def schedule_job(cron_schedule: str):
     schedule.every().day.at(cron_schedule).do(download_and_recover_files)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='SGX File Downloader, by default, it will cron job to daily download/recover files at 8 AM')
-    parser.add_argument('-d', '--date', type=str, help='Date to download, format: YYYYMMDD, e.g. 20221231')
-    parser.add_argument('-l', '--list', action='store_true', help='List 5 days past')
-    parser.add_argument('--latest', action='store_true', help='Download latest files')
-    parser.add_argument('--cron', type=str, help='Cron schedule for the job, format: "HH:MM", e.g. "08:00"')
-    parser.add_argument('-rcv', '--recover', action='store_true', help='Recover all failed dates')
+    parser = argparse.ArgumentParser(description='SGX File Downloader. By default, it will schedule a daily cron job to download or recover files at 8 AM.')
+    parser.add_argument('-d', '--date', type=str, help='Specify the date to download files in the format: YYYYMMDD, e.g., 20221231.')
+    parser.add_argument('-l', '--list', action='store_true', help='List the five previous days.')
+    parser.add_argument('--latest', action='store_true', help='Download the latest files.')
+    parser.add_argument('--cron', type=str, help='Schedule a cron job for downloading the latest files and recovering failed dates. Specify the cron schedule in the format: "HH:MM", e.g., "08:00".')
+    parser.add_argument('-rcv', '--recover', action='store_true', help='Recover all failed dates.')
     args = parser.parse_args()
 
     logger = logger_config()
